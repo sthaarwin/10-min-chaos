@@ -26,35 +26,51 @@ Raylib is a simple and easy-to-use library to enjoy videogames programming. Foll
    ```bash
    sudo apt-get install libraylib-dev
 
-On macOS
-Install Homebrew if you haven’t already, with the following command:
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#### On macOS
 
-Install Raylib using Homebrew:
-brew install raylib
+1. Install Homebrew if you haven't already, with the following command:
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+2. Install Raylib using Homebrew:
+   ```bash
+   brew install raylib
+   ```
 
-Building the Game
+## Building the Game
+
 After installing Raylib, you can build the game using the provided Makefile:
 
+```bash
 make all
+```
 
-This will compile all the necessary files and produce an executable for 10 Min Chaos.
+This will compile all the necessary files and produce an executable for **10 Min Chaos**.
 
-Playing the Game
+## Playing the Game
+
 To play the game, simply run the executable created by the build process.
 
+```bash
 ./10MinChaos
+```
 
 Enjoy the game and try to survive the chaos!
 
-Contributing
-We welcome contributions to 10 Min Chaos. If you have an idea or suggestion, please open an issue or submit a pull request.
+## Contributing
 
-License
-10 Min Chaos is released under the MIT License. See the LICENSE file for more details.
+We welcome contributions to **10 Min Chaos**. If you have an idea or suggestion, please open an issue or submit a pull request.
 
-Acknowledgments
-Thanks to the Raylib team for providing such an amazing library.
-Shoutout to all the game testers and contributors who helped bring 10 Min Chaos to life.
+## License
+
+**10 Min Chaos** is released under the MIT License. See the `LICENSE` file for more details.
+
+## Acknowledgments
+
+- Thanks to the Raylib team for providing such an amazing library.
+- Shoutout to all the game testers and contributors who helped bring **10 Min Chaos** to life.
+
 Happy gaming!
+```
 
+Feel free to customize this template to better fit your project's needs. Good luck with your game development!
