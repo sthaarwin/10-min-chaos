@@ -347,7 +347,7 @@ int main()
     vector<Bullet> bullets;
     unsigned int framesCounter = 0;
     unsigned int spawnTimer = 0;
-    unsigned int spawnInterval = 60; // Increased spawn rate
+    unsigned int spawnInterval = 60;
     unsigned int bulletCooldown = 0;
     const unsigned int bulletCooldownDuration = 60;
 
