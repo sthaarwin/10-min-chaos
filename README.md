@@ -73,4 +73,3 @@ We welcome contributions to **10 Min Chaos**. If you have an idea or suggestion,
 Happy gaming!
 ```
 
-Feel free to customize this template to better fit your project's needs. Good luck with your game development!
