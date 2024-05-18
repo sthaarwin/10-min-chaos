@@ -356,6 +356,7 @@ int main()
         switch (gameState)
         {
         case GameState::Start:
+        {
             drawStartScreen();
             if (IsKeyPressed(KEY_SPACE))
             {
@@ -369,8 +370,9 @@ int main()
                 gameState = GameState::Playing;
             }
             break;
-
+        }
         case GameState::Playing:
+        {
             framesCounter++;
             drawPlayingScreen(user, gun, enemies, bullets, framesCounter);
 
@@ -393,8 +395,9 @@ int main()
                                     { return !b.active; }),
                           bullets.end());
             break;
-
+        }
         case GameState::GameOver:
+        {
             drawGameOverScreen();
             if (IsKeyPressed(KEY_R))
             {
@@ -405,8 +408,9 @@ int main()
                 CloseWindow();
             }
             break;
-
+        }
         case GameState::GameWin:
+        {
             drawGameWinScreen();
             if (IsKeyPressed(KEY_R))
             {
@@ -420,6 +424,7 @@ int main()
 
         default:
             break;
+        }
         }
     }
 
