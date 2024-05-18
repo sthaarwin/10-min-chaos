@@ -380,14 +380,16 @@ int main()
             spawnEnemies(enemies, spawnTimer, spawnInterval);
 
             int minutesCounter = (framesCounter / 60) / 60;
-            if (minutesCounter >= 1)
+            if (minutesCounter >= 10)
             {
                 gameState = GameState::GameWin;
             }
+
             if (user.health <= 0)
             {
                 gameState = GameState::GameOver;
             }
+
             enemies.erase(remove_if(enemies.begin(), enemies.end(), [](Bot &b)
                                     { return !b.active; }),
                           enemies.end());
