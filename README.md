@@ -71,5 +71,4 @@ We welcome contributions to **10 Min Chaos**. If you have an idea or suggestion,
 - Shoutout to all the game testers and contributors who helped bring **10 Min Chaos** to life.
 
 Happy gaming!
-```
 
