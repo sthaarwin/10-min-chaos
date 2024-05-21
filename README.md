@@ -30,7 +30,6 @@ Raylib is a simple and easy-to-use library to enjoy videogames programming. Foll
    qmake PLATFORM=PLATFORM_DESKTOP RAYLIB_LIBTYPE=SHARED # To make the dynamic shared version.
    make PLATFORM=PLATFORM_WEB # To make web version.
 
-
 #### On macOS
 
 1. Install Homebrew if you haven't already, with the following command:
