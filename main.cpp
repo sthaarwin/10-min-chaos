@@ -133,9 +133,45 @@ public:
     {
         return {x, y, width, height};
     }
-    bool checkCollisionWithBot(Bot &other)
+
+    void resolveCollision(Bot &other)
     {
-        return CheckCollisionRecs(this->getCollisionRec(), other.getCollisionRec());
+        float dx = other.x - x;
+        float dy = other.y - y;
+
+        // Determine the direction to move each bot
+        if (fabs(dx) > fabs(dy))
+        {
+            // Horizontal collision
+            if (dx > 0)
+            {
+                // Move other bot right and this bot left
+                other.x += width;
+                x -= width;
+            }
+            else
+            {
+                // Move other bot left and this bot right
+                other.x -= width;
+                x += width;
+            }
+        }
+        else
+        {
+            // Vertical collision
+            if (dy > 0)
+            {
+                // Move other bot down and this bot up
+                other.y += height;
+                y -= height;
+            }
+            else
+            {
+                // Move other bot up and this bot down
+                other.y -= height;
+                y += height;
+            }
+        }
     }
 };
 
@@ -399,10 +435,9 @@ int main()
             {
                 for (size_t j = i + 1; j < enemies.size(); ++j)
                 {
-                    if (enemies[i].active && enemies[j].active && enemies[i].checkCollisionWithBot(enemies[j]))
+                    if (enemies[i].active && enemies[j].active && CheckCollisionRecs(enemies[i].getCollisionRec(), enemies[j].getCollisionRec()))
                     {
-                        enemies[i].active = false;
-                        enemies[j].active = false;
+                        enemies[i].resolveCollision(enemies[j]);
                     }
                 }
             }
