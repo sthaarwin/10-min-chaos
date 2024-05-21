@@ -24,7 +24,12 @@ Raylib is a simple and easy-to-use library to enjoy videogames programming. Foll
 1. Open a terminal window.
 2. Install Raylib using the package manager with the following command:
    ```bash
-   sudo apt-get install libraylib-dev
+   git clone https://github.com/raysan5/raylib.git raylib
+   cd raylib/src/
+   make PLATFORM=PLATFORM_DESKTOP # To make the static version.
+   qmake PLATFORM=PLATFORM_DESKTOP RAYLIB_LIBTYPE=SHARED # To make the dynamic shared version.
+   make PLATFORM=PLATFORM_WEB # To make web version.
+
 
 #### On macOS
 
@@ -52,7 +57,7 @@ This will compile all the necessary files and produce an executable for **10 Min
 To play the game, simply run the executable created by the build process.
 
 ```bash
-./10MinChaos
+./game
 ```
 
 Enjoy the game and try to survive the chaos!
