@@ -29,7 +29,7 @@ public:
     bool collided;
     time_point<steady_clock> lastCollisionTime;
 
-    Player() : x(screenWidth / 2), y(screenHeight / 2), width(20), height(20), speed(7), health(3), collided(false) {}
+    Player() : x(screenWidth / 2), y(screenHeight / 2), width(20), height(20), speed(3.5), health(3), collided(false) {}
 
     void draw()
     {
@@ -38,13 +38,13 @@ public:
 
     void update()
     {
-        if (IsKeyDown(KEY_W))
+        if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))
             y -= speed;
-        if (IsKeyDown(KEY_S))
+        if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN))
             y += speed;
-        if (IsKeyDown(KEY_A))
+        if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
             x -= speed;
-        if (IsKeyDown(KEY_D))
+        if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
             x += speed;
 
         // Screen wrapping
@@ -132,6 +132,10 @@ public:
     Rectangle getCollisionRec()
     {
         return {x, y, width, height};
+    }
+    bool checkCollisionWithBot(Bot &other)
+    {
+        return CheckCollisionRecs(this->getCollisionRec(), other.getCollisionRec());
     }
 };
 
@@ -303,7 +307,7 @@ void handleShooting(Gun &gun, Player &user, vector<Bullet> &bullets, unsigned in
 {
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && bulletCooldown == 0)
     {
-        Vector2 bulletPosition = {user.x + gun.xOffset, user.y + gun.yOffset};
+        Vector2 bulletPosition = {user.x + user.width / 2 + gun.xOffset, user.y + user.height / 2 + gun.yOffset};
         Vector2 bulletVelocity = {cos(gun.angle) * 15, sin(gun.angle) * 15};
         Bullet newBullet(bulletPosition, bulletVelocity, 3);
         bullets.push_back(newBullet);
@@ -390,6 +394,19 @@ int main()
                 gameState = GameState::GameOver;
             }
 
+            // Check for collisions between bots
+            for (size_t i = 0; i < enemies.size(); ++i)
+            {
+                for (size_t j = i + 1; j < enemies.size(); ++j)
+                {
+                    if (enemies[i].active && enemies[j].active && enemies[i].checkCollisionWithBot(enemies[j]))
+                    {
+                        enemies[i].active = false;
+                        enemies[j].active = false;
+                    }
+                }
+            }
+
             enemies.erase(remove_if(enemies.begin(), enemies.end(), [](Bot &b)
                                     { return !b.active; }),
                           enemies.end());
@@ -423,7 +440,6 @@ int main()
                 CloseWindow();
             }
             break;
-
         default:
             break;
         }
