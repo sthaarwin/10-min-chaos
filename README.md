@@ -22,7 +22,7 @@ Raylib is a simple and easy-to-use library to enjoy videogames programming. Foll
 #### On Linux
 
 1. Open a terminal window.
-2. Install Raylib using the package manager with the following command:
+2. Install Raylib  with the following command:
    ```bash
    git clone https://github.com/raysan5/raylib.git raylib
    cd raylib/src/
