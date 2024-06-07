@@ -89,7 +89,7 @@ public:
     float speed;
     bool active;
 
-    Bot() : x(0), y(0), width(20), height(20), speed(5), active(true) {}
+    Bot() : x(0), y(0), width(20), height(20), speed(2), active(true) {}
 
     void draw()
     {
@@ -116,8 +116,8 @@ public:
         y += dy * speed;
 
         float maxSpeed = 7.0f;
-        float minSpeed = 3.0f;
-        float speedIncrement = (maxSpeed - minSpeed) / (2 * 60 * 60); // 5 minutes in frames
+        float minSpeed = 2.0f;
+        float speedIncrement = (maxSpeed - minSpeed) / (5 * 60 * 60); // 5 minutes in frames
 
         if (minutesCounter < 5)
         {
