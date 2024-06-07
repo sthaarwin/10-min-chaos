@@ -146,14 +146,14 @@ public:
             if (dx > 0)
             {
                 // Move other bot right and this bot left
-                other.x += width;
-                x -= width;
+                other.x += width / 2;
+                x -= width / 2;
             }
             else
             {
                 // Move other bot left and this bot right
-                other.x -= width;
-                x += width;
+                other.x -= width / 2;
+                x += width / 2;
             }
         }
         else
@@ -162,14 +162,14 @@ public:
             if (dy > 0)
             {
                 // Move other bot down and this bot up
-                other.y += height;
-                y -= height;
+                other.y += height / 2;
+                y -= height / 2;
             }
             else
             {
                 // Move other bot up and this bot down
-                other.y -= height;
-                y += height;
+                other.y -= height / 2;
+                y += height / 2;
             }
         }
     }
