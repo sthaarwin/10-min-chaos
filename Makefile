@@ -24,7 +24,7 @@
 .PHONY: all clean
 
 # Define required raylib variables
-PROJECT_NAME       ?= game
+PROJECT_NAME       ?= 10-min-chaos
 RAYLIB_VERSION     ?= 4.5.0
 RAYLIB_PATH        ?= ..\..
 
