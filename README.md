@@ -56,7 +56,7 @@ This will compile all the necessary files and produce an executable for **10 Min
 To play the game, simply run the executable created by the build process.
 
 ```bash
-./game
+./10-min-chaos
 ```
 
 Enjoy the game and try to survive the chaos!
