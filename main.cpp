@@ -8,8 +8,8 @@
 using namespace std;
 using namespace std::chrono;
 
-const int screenWidth = 960;
-const int screenHeight = 540;
+const int screenWidth = 1080;
+const int screenHeight = 720;
 
 enum class GameState
 {
@@ -58,7 +58,7 @@ public:
             x = screenWidth - width - 10;
 
         // Reset collision flag after cooldown
-        auto currentTime = steady_clock::now();
+        float currentTime = steady_clock::now();
         if (duration_cast<seconds>(currentTime - lastCollisionTime).count() >= 1)
         {
             collided = false;
